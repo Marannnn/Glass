@@ -1,0 +1,9 @@
+Main window
+Add new - window	x
+
+Show new window on button press
+	load file
+	start wine 
+
+	add into user library
+		-show name

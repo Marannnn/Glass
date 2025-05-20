@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Glass.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        x:Class="Glass.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Glass"
+        Height="500"
+        Width="800">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <TabControl >
+        <TabItem Header="Applications" FontSize="15" >
+            <Grid RowDefinitions="Auto, *">
+                <Button Background="#00ff00" Margin="0 10">+</Button>
+                <ScrollViewer Grid.Row="1" Background="Aqua">
+                    Test
+                </ScrollViewer>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Prefixes" FontSize="15">
+            
+        </TabItem>
+        <TabItem Header="Settings" FontSize="15">
+            
+        </TabItem>
+        
+    </TabControl>
+    
+</Window>

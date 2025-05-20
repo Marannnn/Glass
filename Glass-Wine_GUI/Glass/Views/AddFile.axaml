@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
+        x:Class="Glass.Views.AddFile"
+        Title="AddFile"
+        Height="450"
+        Width="450">
+        <Grid RowDefinitions="Auto, Auto">
+                <Label Background="Aqua">Select a valid .exe file</Label>
+                <TextBox Grid.Row="1" Background="BlueViolet" Margin="0 10"></TextBox>
+        </Grid>
+</Window>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Glass/App.axaml" value="Glass/Glass.csproj" />
+        <entry key="Glass/Views/AddFile.axaml" value="Glass/Glass.csproj" />
+        <entry key="Glass/Views/MainWindow.axaml" value="Glass/Glass.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
