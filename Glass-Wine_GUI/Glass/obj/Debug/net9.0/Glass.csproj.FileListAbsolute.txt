@@ -65,3 +65,4 @@
 /home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/obj/Debug/net9.0/Glass.pdb
 /home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/obj/Debug/net9.0/Glass.genruntimeconfig.cache
 /home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/obj/Debug/net9.0/ref/Glass.dll
+/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/obj/Debug/net9.0/Glass.sourcelink.json
