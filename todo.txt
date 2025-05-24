@@ -3,7 +3,7 @@ Add new - window	x
 
 Show new window on button press x
 	load file
-		-> show file manager dialog {Open file picker async}
+		-> show file manager dialog {Open file picker async} x DOING NOW
 	start wine 
 
 	add into user library

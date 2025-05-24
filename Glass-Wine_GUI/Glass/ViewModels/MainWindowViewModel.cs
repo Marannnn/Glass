@@ -10,7 +10,7 @@ public partial class MainWindowViewModel : ViewModelBase
     [RelayCommand]
     public void OpenFileWindow()
     {
-        var  AddFileWindow = new AddFile
+        var AddFileWindow = new AddFile
         {
             DataContext = new AddFileViewModel() //urci data context pro instanci okna// tady to jsem si vypujcil z app.axaml. PROC TO NEBYLO V DOKUMENTACI NEBO ASI MOZNA JO JA NEVIM
         };
