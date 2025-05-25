@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Glass.Views;
 namespace Glass.ViewModels;
@@ -6,7 +8,7 @@ namespace Glass.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     public string Greeting { get;} = "Welcome to Avalonia!";
-
+    
     [RelayCommand]
     public void OpenFileWindow()
     {
@@ -16,5 +18,6 @@ public partial class MainWindowViewModel : ViewModelBase
         };
         AddFileWindow.Show();
         Console.WriteLine($"New Window: {AddFileWindow}");
+        
     }
 }

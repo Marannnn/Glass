@@ -5,20 +5,16 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Platform.Storage;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Glass.ViewModels;
 
 namespace Glass.Views;
 
 public partial class AddFile : Window
 {
+    private string filePath;
     public AddFile()
     {
         InitializeComponent();
-    }
-
-    private void AddButton(object? sender, RoutedEventArgs e)
-    {
-       
-        Close(); //okno se vypne
     }
 
     private async void BrowseButton(object? sender, RoutedEventArgs e)
@@ -27,7 +23,7 @@ public partial class AddFile : Window
         var exeFiles = new FilePickerFileType(".exe")
         {
             Patterns = new []{"*.exe"},
-            MimeTypes = new[] { "application/vnd.microsoft.portable-executable"}
+            MimeTypes = new []{"application/vnd.microsoft.portable-executable"}
         };
         
         var topLevel = TopLevel.GetTopLevel(this);
@@ -38,8 +34,23 @@ public partial class AddFile : Window
             AllowMultiple = false,
             FileTypeFilter = new[] {exeFiles}
         });
-        // TODO: tmpFilePath = files[0].Path.ToString();
-        // OTEVRIT STREAM SOUBORU, TAM POSLAT files A TEN PRECIST V AddFileViewModel
+        if (files.Count == 1)   //jestli uzivatel vybral 1 soubor
+        {
+            filePath = files[0].Path.LocalPath;
+        }
+    }   
+    
+    private void AddButton(object? sender, RoutedEventArgs e)
+    {
+        if (String.IsNullOrEmpty(filePath) == false)    //pokud neni prazdne
+        {
+            if (DataContext is AddFileViewModel vm)     //jestli DataContext je "AddFileViewModel", tak ulozim ten ViewModel do promene "vm"
+            {
+                vm.LoadFile(filePath);
+            }    
+        }
+        
+        Close(); //okno se vypne
     }
 
 }

@@ -20,7 +20,7 @@
     <TabControl >
         <TabItem Header="Applications" FontSize="15" >
             <Grid RowDefinitions="Auto, *">
-                <Button Background="#00ff00" Margin="0 10" Command="{Binding OpenFileWindowCommand}">+</Button>
+                <Button Margin="0 10" Command="{Binding OpenFileWindowCommand}">+</Button>
                 <ScrollViewer Grid.Row="1" Background="Aqua">
                     
                 </ScrollViewer>
