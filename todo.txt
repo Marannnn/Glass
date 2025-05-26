@@ -2,9 +2,19 @@ Main window
 Add new - window	x
 
 Show new window on button press x
-	load file
-		-> show file manager dialog {Open file picker async} x DOING NOW
+	load file 
+		-> show file manager dialog {Open file picker async}	x
+		select existing prefix		X WORKING ON 
+			combobox -> load saved prefixes from collection
+			save to program class
 	start wine 
+		wine will start it in the apps selected prefix
 
 	add into user library
 		-show name
+	prefixes		
+		create new ones
+
+	custom themes
+
+Color pallete
