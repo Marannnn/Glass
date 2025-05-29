@@ -5,6 +5,7 @@
       <map>
         <entry key="Glass/App.axaml" value="Glass/Glass.csproj" />
         <entry key="Glass/Views/AddFile.axaml" value="Glass/Glass.csproj" />
+        <entry key="Glass/Views/AddPrefix.axaml" value="Glass/Glass.csproj" />
         <entry key="Glass/Views/MainWindow.axaml" value="Glass/Glass.csproj" />
       </map>
     </option>

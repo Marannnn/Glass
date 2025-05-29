@@ -7,8 +7,6 @@ namespace Glass.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting { get;} = "Welcome to Avalonia!";
-    
     [RelayCommand]
     public void OpenFileWindow()
     {
@@ -19,5 +17,16 @@ public partial class MainWindowViewModel : ViewModelBase
         AddFileWindow.Show();
         Console.WriteLine($"New Window: {AddFileWindow}");
         
+    }
+
+    [RelayCommand]
+    public void OpenPrefixWindow()
+    {
+        var AddPrefixWindow = new AddPrefix
+        {
+            DataContext = new AddPrefixViewModel()
+        };
+        AddPrefixWindow.Show();
+        Console.WriteLine($"New Window: {AddPrefixWindow}");
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XpEOfaHxYug=",
+  "dgSpecHash": "ZTgLU7EWqIU=",
   "success": true,
-  "projectFilePath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/Glass.csproj",
+  "projectFilePath": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
   "expectedPackageFiles": [
     "/home/maran/.nuget/packages/avalonia/11.3.0/avalonia.11.3.0.nupkg.sha512",
     "/home/maran/.nuget/packages/avalonia.angle.windows.natives/2.1.22045.20230930/avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",

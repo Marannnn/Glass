@@ -15,17 +15,20 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Glass
-build_property.ProjectDir = /home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/
+build_property.ProjectDir = /home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/App.axaml]
+[/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/Views/AddFile.axaml]
+[/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Views/AddFile.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass-Wine_GUI/Glass/Views/MainWindow.axaml]
+[/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Views/AddPrefix.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

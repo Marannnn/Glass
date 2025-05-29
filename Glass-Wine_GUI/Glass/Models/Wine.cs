@@ -14,12 +14,12 @@ public class Wine
             StartInfo = new ProcessStartInfo(filePath)
             {
                 FileName = "wine",
-                Arguments = $"start {filePath}",
+                Arguments = filePath,
                 UseShellExecute = true,
                 CreateNoWindow = false,
             }
         };
         process.Start();
-        Console.WriteLine($"Proces zapnut");
+        Console.WriteLine($"Zapnul jsem proces: {process.StartInfo.FileName} {process.StartInfo.Arguments}");
     }
 }

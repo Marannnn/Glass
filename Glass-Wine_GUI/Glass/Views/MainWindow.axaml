@@ -27,7 +27,12 @@
             </Grid>
         </TabItem>
         <TabItem Header="Prefixes" FontSize="15">
-            
+            <Grid RowDefinitions="Auto, *">
+                <Button Content="+" Command="{Binding OpenPrefixWindow}" Margin="0 10"></Button>
+                <ScrollViewer Grid.Row="1" Background="Aqua">
+                    <!-- Tady budou vypsane jednotlive prefixy !-->
+                </ScrollViewer>
+            </Grid>
         </TabItem>
         <TabItem Header="Settings" FontSize="15">
             

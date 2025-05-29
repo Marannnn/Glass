@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Glass.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="300"
+        x:Class="Glass.Views.AddPrefix"
+        Title="AddPrefix"
+        x:DataType="vm:AddPrefixViewModel"
+        Height="300"
+        Width="450">
+        <!-- Label - Add prefix , Input box for name !-->
+        <Grid RowDefinitions="Auto, Auto, *, Auto" Margin="10 10">
+                <Grid ColumnDefinitions="*, Auto" Margin="0 10">
+                        <Label>Name for new prefix (Creates new path)</Label>
+                        <TextBox Grid.Column="1" Text="{Binding PrefixName}" Watermark="Type name here"></TextBox>
+                </Grid>
+                <Grid Grid.Row="1" ColumnDefinitions="*, Auto" Margin="0 10" >
+                        <Label Grid.Column="0">64/32bits</Label>
+                        <ComboBox Grid.Column="1" SelectedIndex="0" ItemsSource="{Binding Architecture}">
+                                <!-- HERE ADD BIT OPTIONS !-->
+                                <ComboBox.Template>
+                                        
+                                </ComboBox.Template>
+                        </ComboBox>
+                </Grid>
+                <Button Grid.Row="2" Content="Create" Command="{Binding NewPrefix}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 30"></Button>
+        </Grid>
+        
+</Window>
