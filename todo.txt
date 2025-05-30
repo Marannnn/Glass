@@ -14,7 +14,9 @@ Show new window on button press x
 		-show name
 	prefixes		
 		create new ones
-
+		save prefixes paths into a file
+		
+		everytime the program looks into the file and loads the name of the prefix ( for organizatinos purps) and their paths
 	custom themes
 
 Color pallete
