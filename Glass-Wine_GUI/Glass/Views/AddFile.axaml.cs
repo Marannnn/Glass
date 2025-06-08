@@ -46,8 +46,6 @@ public partial class AddFile : Window
             filePath = files[0].Path.AbsolutePath;
         }
     }   
-    //TODO: get user prefix
-    
     private void AddButton(object? sender, RoutedEventArgs e)
     {
         if (String.IsNullOrEmpty(filePath) == false)    //pokud neni prazdne

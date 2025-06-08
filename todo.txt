@@ -5,7 +5,7 @@ Show new window on button press x
 	load file 
 		-> show file manager dialog {Open file picker async}	x
 		select existing prefix		X WORKING ON 
-			combobox -> load saved prefixes from collection
+			combobox -> load saved prefixes from collection  
 			save to program class
 	start wine 
 		wine will start it in the apps selected prefix
@@ -20,3 +20,22 @@ Show new window on button press x
 	custom themes
 
 Color pallete
+
+
+##################
+
+what im working on
+--------------------
+
+
+combobox load collection			X
+
+AddPrefix create new prefix with wine.cs 	() working on
+	default ~/.wine				X
+		check if exists			X
+	
+
+AddPrefix save prefix into file 		X
+	if succesculy created save into .glass  X
+
+AddFile load prefixes from json file

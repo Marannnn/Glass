@@ -8,7 +8,8 @@
         x:DataType="vm:AddFileViewModel"
         Title="AddFile"
         Height="300"
-        Width="450">
+        Width="450"
+        Background="#1B2430">
         <Design.DataContext>
                 <vm:AddFileViewModel/>
         </Design.DataContext>

@@ -22,7 +22,8 @@
 /home/maran/.nuget/packages/avalonia.win32/11.3.0/lib/net8.0/Avalonia.Win32.Automation.dll
 /home/maran/.nuget/packages/avalonia.win32/11.3.0/lib/net8.0/Avalonia.Win32.dll
 /home/maran/.nuget/packages/avalonia.x11/11.3.0/lib/net8.0/Avalonia.X11.dll
-/home/maran/.nuget/packages/communitytoolkit.mvvm/8.2.1/lib/net6.0/CommunityToolkit.Mvvm.dll
+/home/maran/.nuget/packages/cliwrap/3.9.0-alpha.1/lib/net9.0/CliWrap.dll
+/home/maran/.nuget/packages/communitytoolkit.mvvm/8.4.0/lib/net8.0/CommunityToolkit.Mvvm.dll
 /home/maran/.nuget/packages/harfbuzzsharp/7.3.0.3/lib/net6.0/HarfBuzzSharp.dll
 /home/maran/.nuget/packages/microcom.runtime/0.11.0/lib/net5.0/MicroCom.Runtime.dll
 /usr/share/dotnet/packs/Microsoft.NETCore.App.Ref/9.0.4/ref/net9.0/Microsoft.CSharp.dll

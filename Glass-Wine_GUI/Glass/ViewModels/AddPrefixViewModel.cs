@@ -1,23 +1,29 @@
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Net;
+using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Glass.Models;
 
 namespace Glass.ViewModels;
 
 public partial class AddPrefixViewModel : ViewModelBase
 {
+    private Wine wine = new Wine();
 
     [ObservableProperty]
     private string _prefixName;
+    [ObservableProperty]
+    private Architecutre _selectedArch;
     
-    private enum Architecutre
+    public enum Architecutre
     {
-            X86,
-            x64
+            x64,
+            X86
     }
-    //TODO: bind enum to combobox
-    private ObservableCollection<Architecutre> architecutresCollection = new ObservableCollection<Architecutre>
+    public ObservableCollection<Architecutre> architecturesCollection { get; set; } = new ObservableCollection<Architecutre>
     {
         Architecutre.X86,
         Architecutre.x64
@@ -29,7 +35,7 @@ public partial class AddPrefixViewModel : ViewModelBase
     {
         if (PrefixName is not null)
         {
-            Console.WriteLine(PrefixName);
+            wine.NewPrefix(PrefixName, SelectedArch);
         }
     }
 }

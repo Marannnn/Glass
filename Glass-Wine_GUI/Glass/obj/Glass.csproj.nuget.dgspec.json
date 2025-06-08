@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj": {}
+    "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj": {}
   },
   "projects": {
-    "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj": {
+    "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
+        "projectUniqueName": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
         "projectName": "Glass",
-        "projectPath": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
+        "projectPath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
         "packagesPath": "/home/maran/.nuget/packages/",
-        "outputPath": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/obj/",
+        "outputPath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/maran/.nuget/NuGet/NuGet.Config"
@@ -64,9 +64,13 @@
               "target": "Package",
               "version": "[11.3.0, )"
             },
+            "CliWrap": {
+              "target": "Package",
+              "version": "[3.9.0-alpha.1, )"
+            },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.4.0, )"
             }
           },
           "imports": [

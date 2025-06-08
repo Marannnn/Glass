@@ -13,7 +13,8 @@
           "Avalonia.Diagnostics": "11.3.0",
           "Avalonia.Fonts.Inter": "11.3.0",
           "Avalonia.Themes.Fluent": "11.3.0",
-          "CommunityToolkit.Mvvm": "8.2.1"
+          "CliWrap": "3.9.0-alpha.1",
+          "CommunityToolkit.Mvvm": "8.4.0"
         },
         "runtime": {
           "Glass.dll": {}
@@ -249,11 +250,19 @@
           }
         }
       },
-      "CommunityToolkit.Mvvm/8.2.1": {
+      "CliWrap/3.9.0-alpha.1": {
         "runtime": {
-          "lib/net6.0/CommunityToolkit.Mvvm.dll": {
-            "assemblyVersion": "8.2.0.0",
-            "fileVersion": "8.2.1.1"
+          "lib/net9.0/CliWrap.dll": {
+            "assemblyVersion": "3.9.0.0",
+            "fileVersion": "3.9.0.0"
+          }
+        }
+      },
+      "CommunityToolkit.Mvvm/8.4.0": {
+        "runtime": {
+          "lib/net8.0/CommunityToolkit.Mvvm.dll": {
+            "assemblyVersion": "8.4.0.0",
+            "fileVersion": "8.4.0.1"
           }
         }
       },
@@ -526,12 +535,19 @@
       "path": "avalonia.x11/11.3.0",
       "hashPath": "avalonia.x11.11.3.0.nupkg.sha512"
     },
-    "CommunityToolkit.Mvvm/8.2.1": {
+    "CliWrap/3.9.0-alpha.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I24ofWVEdplxYjUez9/bljv/qb8r8Ccj6cvYXHexNBegLaD3iDy3QrzAAOYVMmfGWIXxlU1ZtECQNfU07+6hXQ==",
-      "path": "communitytoolkit.mvvm/8.2.1",
-      "hashPath": "communitytoolkit.mvvm.8.2.1.nupkg.sha512"
+      "sha512": "sha512-r7+DD08XJ4eWLAl70eztyyY9beXHeMkujU6mhxGDLorM2sXqgaUIu4J2X8b/tGNlIT8qCQrUk14GHRpIRcXGIA==",
+      "path": "cliwrap/3.9.0-alpha.1",
+      "hashPath": "cliwrap.3.9.0-alpha.1.nupkg.sha512"
+    },
+    "CommunityToolkit.Mvvm/8.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tqVU8yc/ADO9oiTRyTnwhFN68hCwvkliMierptWOudIAvWY1mWCh5VFh+guwHJmpMwfg0J0rY+yyd5Oy7ty9Uw==",
+      "path": "communitytoolkit.mvvm/8.4.0",
+      "hashPath": "communitytoolkit.mvvm.8.4.0.nupkg.sha512"
     },
     "HarfBuzzSharp/7.3.0.3": {
       "type": "package",

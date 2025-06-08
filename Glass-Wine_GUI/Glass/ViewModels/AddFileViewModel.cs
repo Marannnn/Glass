@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Glass.Views;
@@ -9,21 +10,30 @@ using Glass.Models;
 using Microsoft.VisualBasic;
 
 namespace Glass.ViewModels;
+
 public partial class AddFileViewModel : ViewModelBase
 {
     private List<WineProgram> programList = new List<WineProgram>();
     private Wine wine = new Wine();
-    private ObservableCollection<string> prefixesCollection { get; } = new ObservableCollection<string>();
-
+    public ObservableCollection<string> prefixesCollection { get; } = new ObservableCollection<string>();
+    
+    public AddFileViewModel()
+    {
+        //TODO: LOAD saved prefixes from json
+        //save them into prefixCollection
+    }
+        
     public void Test()
     {
         //TODO: Dynamically add prefixesCollection into combobox
-        
+
         Console.WriteLine("Started :##3333");
         prefixesCollection.Add("Glass");
     }
+
     public void AddNewFile(string name, string path, string prefix)
     {
+
         Console.WriteLine($"Dostal jsem {path}");
         programList.Add(new WineProgram()
         {
@@ -33,6 +43,7 @@ public partial class AddFileViewModel : ViewModelBase
         });
         wine.StartFile(path, prefix);
     }
+
 }
 
 public class WineProgram
