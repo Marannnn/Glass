@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G1LUPvnKwx8=",
+  "dgSpecHash": "dhE9CXk/5l0=",
   "success": true,
   "projectFilePath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,6 @@
     "/home/maran/.nuget/packages/avalonia.themes.simple/11.3.0/avalonia.themes.simple.11.3.0.nupkg.sha512",
     "/home/maran/.nuget/packages/avalonia.win32/11.3.0/avalonia.win32.11.3.0.nupkg.sha512",
     "/home/maran/.nuget/packages/avalonia.x11/11.3.0/avalonia.x11.11.3.0.nupkg.sha512",
-    "/home/maran/.nuget/packages/cliwrap/3.9.0-alpha.1/cliwrap.3.9.0-alpha.1.nupkg.sha512",
     "/home/maran/.nuget/packages/communitytoolkit.mvvm/8.4.0/communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "/home/maran/.nuget/packages/harfbuzzsharp/7.3.0.3/harfbuzzsharp.7.3.0.3.nupkg.sha512",
     "/home/maran/.nuget/packages/harfbuzzsharp.nativeassets.linux/7.3.0.3/harfbuzzsharp.nativeassets.linux.7.3.0.3.nupkg.sha512",

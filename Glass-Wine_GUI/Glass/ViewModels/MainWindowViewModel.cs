@@ -24,29 +24,25 @@ public partial class MainWindowViewModel : ViewModelBase
             File.WriteAllText(Path.Combine(directory, "prefixes.txt"), string.Empty);
         }
 
-        // readas the prefix file
+        // reads the prefix file
         List<string> prefixes = File.ReadAllLines(Path.Combine(directory, "prefixes.txt")).ToList();
         
-        string defaultDirecotry = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".wine");
-        if (Directory.Exists(defaultDirecotry))
+	    string userName = Environment.UserName;
+        string defaultDirectory = $"/home/{userName}/.wine";
+        if (Directory.Exists(defaultDirectory))		//pokud ta wine directory existuje
         {
-            if (!prefixes.Contains("~/.wine"))
+            if (!prefixes.Contains(defaultDirectory))	//pokud ji nemam zapsanou v prefixes.txt
             {
-                //FIX: prefix doesnt append ~/.wine. so its not written into file
-                prefixes.Add("~/.wine");
-                foreach (string prefix in prefixes) 
-                {
-                    Console.WriteLine(prefix);
-                }
+                prefixes.Add(defaultDirectory);
                 File.WriteAllLines(Path.Combine(directory, "prefixes.txt"), prefixes);
             }
         }
 
-        //TODO: load all prefixes
         foreach (string prefix in prefixes)
         {
             prefixCollection.Add(prefix);
         }
+	prefixes = null;   //manualne to odstranim protoze uz to nebudu pouzivat, asi zbytecne ale idk proc ne 
     }
 
     [RelayCommand]

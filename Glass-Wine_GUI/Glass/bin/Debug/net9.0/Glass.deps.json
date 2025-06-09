@@ -13,7 +13,6 @@
           "Avalonia.Diagnostics": "11.3.0",
           "Avalonia.Fonts.Inter": "11.3.0",
           "Avalonia.Themes.Fluent": "11.3.0",
-          "CliWrap": "3.9.0-alpha.1",
           "CommunityToolkit.Mvvm": "8.4.0"
         },
         "runtime": {
@@ -247,14 +246,6 @@
           "lib/net8.0/Avalonia.X11.dll": {
             "assemblyVersion": "11.3.0.0",
             "fileVersion": "11.3.0.0"
-          }
-        }
-      },
-      "CliWrap/3.9.0-alpha.1": {
-        "runtime": {
-          "lib/net9.0/CliWrap.dll": {
-            "assemblyVersion": "3.9.0.0",
-            "fileVersion": "3.9.0.0"
           }
         }
       },
@@ -534,13 +525,6 @@
       "sha512": "sha512-BFkNmxW0pyqrg7q62tAEv7ZCfkR4k2bz39B3umU2VLRrYpsH/b2DocXeqgeYZYJbHikSPAXLkY34IHLZtdkU1w==",
       "path": "avalonia.x11/11.3.0",
       "hashPath": "avalonia.x11.11.3.0.nupkg.sha512"
-    },
-    "CliWrap/3.9.0-alpha.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-r7+DD08XJ4eWLAl70eztyyY9beXHeMkujU6mhxGDLorM2sXqgaUIu4J2X8b/tGNlIT8qCQrUk14GHRpIRcXGIA==",
-      "path": "cliwrap/3.9.0-alpha.1",
-      "hashPath": "cliwrap.3.9.0-alpha.1.nupkg.sha512"
     },
     "CommunityToolkit.Mvvm/8.4.0": {
       "type": "package",

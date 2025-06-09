@@ -30,7 +30,7 @@ what im working on
 
 combobox load collection			X
 
-AddPrefix create new prefix with wine.cs 	() working on
+AddPrefix create new prefix with wine.cs 	X
 	default ~/.wine				X
 		check if exists			X
 	
@@ -38,4 +38,10 @@ AddPrefix create new prefix with wine.cs 	() working on
 AddPrefix save prefix into file 		X
 	if succesculy created save into .glass  X
 
-AddFile load prefixes from json file
+AddFile load prefixes				X
+
+Wine.cs Start a program
+
+ON START; check if saved path stil exists before loading into ObservableCollection
+
+deleted CliWrap	X	

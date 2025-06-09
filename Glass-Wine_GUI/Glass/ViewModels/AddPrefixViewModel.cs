@@ -30,7 +30,6 @@ public partial class AddPrefixViewModel : ViewModelBase
     };
     
     [RelayCommand]
-    //TODO: creates new wine prefix with the inputed name
     public void NewPrefix()
     {
         if (PrefixName is not null)

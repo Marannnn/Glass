@@ -64,10 +64,6 @@
               "target": "Package",
               "version": "[11.3.0, )"
             },
-            "CliWrap": {
-              "target": "Package",
-              "version": "[3.9.0-alpha.1, )"
-            },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.4.0, )"
