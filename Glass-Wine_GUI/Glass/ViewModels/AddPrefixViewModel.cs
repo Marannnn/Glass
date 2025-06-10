@@ -20,13 +20,13 @@ public partial class AddPrefixViewModel : ViewModelBase
     
     public enum Architecutre
     {
-            x64,
-            X86
+            win64,
+            win32
     }
     public ObservableCollection<Architecutre> architecturesCollection { get; set; } = new ObservableCollection<Architecutre>
     {
-        Architecutre.X86,
-        Architecutre.x64
+        Architecutre.win64,
+        Architecutre.win32
     };
     
     [RelayCommand]

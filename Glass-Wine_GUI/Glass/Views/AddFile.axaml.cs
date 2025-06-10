@@ -43,7 +43,7 @@ public partial class AddFile : Window
         if (files.Count == 1)   //jestli uzivatel vybral 1 soubor
         {
             fileName = files[0].Name;
-            filePath = files[0].Path.AbsolutePath;
+            filePath = files[0].Path.LocalPath;
         }
     }   
     private void AddButton(object? sender, RoutedEventArgs e)

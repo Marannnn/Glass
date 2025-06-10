@@ -10,7 +10,7 @@ namespace Glass.Models;
 
 public class Wine
 {       
-    public void NewPrefix(string name, AddPrefixViewModel.Architecutre architecutre)
+    public void NewPrefix(string name, AddPrefixViewModel.Architecutre architecture)
     {
         string currentUser = Environment.UserName;  //gets the current user
         string prefixPath = $"/home/{currentUser}/.{name}";
@@ -21,9 +21,8 @@ public class Wine
              StartInfo = new ProcessStartInfo()
              {
                  FileName = "/bin/bash",
-                 Arguments = $"-c \"WINEPREFIX={prefixPath} wineboot -u\"" ,
+                 Arguments = $"-c \"WINEARCH={architecture} WINEPREFIX={prefixPath} wineboot -u\"" ,
                  CreateNoWindow = true,
-                 UseShellExecute = true
              }
          };
          process.Start();
@@ -50,9 +49,10 @@ public class Wine
             StartInfo = new ProcessStartInfo()
             {
 				FileName = "/bin/bash",
-				Arguments = $"c- wine"
+				Arguments = $"-c \"wine '{filePath}' \"",
             }
         };
+        Console.WriteLine($"Created new process {process.StartInfo.FileName} + {process.StartInfo.Arguments}");
         process.Start();
     }
 }

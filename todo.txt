@@ -27,21 +27,29 @@ Color pallete
 what im working on
 --------------------
 
+Wine.cs Start a program		X
 
-combobox load collection			X
+AddPrefix new prefix with selected ARCH		X
 
-AddPrefix create new prefix with wine.cs 	X
-	default ~/.wine				X
-		check if exists			X
-	
+MainViewModel show prefixes architecture
 
-AddPrefix save prefix into file 		X
-	if succesculy created save into .glass  X
+!IMPORTANT!
+prefix class - prefixPath and architecture
 
-AddFile load prefixes				X
-
-Wine.cs Start a program
 
 ON START; check if saved path stil exists before loading into ObservableCollection
 
-deleted CliWrap	X	
+AddFile show selected file
+
+AddFIle add new instance of class
+	show the instance in MainViewModel.axaml
+
+	ON-CLICK: 
+		start the file fie with the specified prefix
+			+(method StartFile wine.cs)
+
+
+#######
+current problem
+---------------
+
