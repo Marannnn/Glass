@@ -13,14 +13,9 @@ public partial class AddFile : Window
 {
     private string filePath;
     private string fileName;
-    private string filePrefix;
     public AddFile()
     {
         InitializeComponent();    
-        if (DataContext is AddFileViewModel vm)     //jestli DataContext je "AddFileViewModel", tak ulozim ten ViewModel do promene "vm"
-        {
-            vm.Test();
-        }    
     }
 
     private async void BrowseButton(object? sender, RoutedEventArgs e)
@@ -52,7 +47,7 @@ public partial class AddFile : Window
         {
             if (DataContext is AddFileViewModel vm)     //jestli DataContext je "AddFileViewModel", tak ulozim ten ViewModel do promene "vm"
             {
-                vm.AddNewFile(fileName, filePath, filePrefix);
+                vm.AddNewFile(fileName, filePath);
             }    
         }
         

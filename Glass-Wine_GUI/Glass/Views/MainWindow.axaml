@@ -27,12 +27,23 @@
                 </ScrollViewer>
             </Grid>
         </TabItem>
-        <TabItem Header="Prefixes" FontSize="15">
+        <TabItem Header="Prefixes" FontSize="15" x:Name="Root">
             <Grid RowDefinitions="Auto, *">
                 <Button Content="+" Command="{Binding OpenPrefixWindow}" Margin="0 10"></Button>
                 <ScrollViewer Grid.Row="1" Margin="0 0 0 15">
                     <ListBox Background="#293244" ItemsSource="{Binding prefixCollection}">
-                        
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="* , *, Auto">
+                                    <Label Grid.Column="0" Content="{Binding path}"></Label>
+                                    <Label Grid.Column="1" Content="{Binding Architecture}"></Label>
+                                    <Button Grid.Column="2" Content="Remove"
+                                            Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemovePrefixCommand}"
+                                            CommandParameter="{Binding .}">
+                                    </Button> 
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                 </ScrollViewer>
             </Grid>

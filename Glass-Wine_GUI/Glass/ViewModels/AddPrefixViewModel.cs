@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Net;
 using System.Text.Json;
+using Avalonia.Controls.Shapes;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Glass.Models;
@@ -16,17 +17,17 @@ public partial class AddPrefixViewModel : ViewModelBase
     [ObservableProperty]
     private string _prefixName;
     [ObservableProperty]
-    private Architecutre _selectedArch;
+    private Architecture _selectedArch;
     
-    public enum Architecutre
+    public enum Architecture
     {
             win64,
             win32
     }
-    public ObservableCollection<Architecutre> architecturesCollection { get; set; } = new ObservableCollection<Architecutre>
+    public ObservableCollection<Architecture> architecturesCollection { get; set; } = new ObservableCollection<Architecture>
     {
-        Architecutre.win64,
-        Architecutre.win32
+        Architecture.win64,
+        Architecture.win32
     };
     
     [RelayCommand]

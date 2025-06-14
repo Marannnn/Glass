@@ -22,7 +22,7 @@
                 </Grid>
                 <Grid Grid.Row="1" Grid.ColumnDefinitions="*, Auto" Margin="0 10">
                         <Label>Select an existing prefix</Label>
-                        <ComboBox Grid.Column="1" ItemsSource="{Binding prefixesCollection}">
+                        <ComboBox Grid.Column="1" ItemsSource="{Binding prefixesCollection}" SelectedItem="{Binding }">
                         </ComboBox>
                 </Grid>
                 <Button Grid.Row="3" Click="AddButton" Content="Add" HorizontalAlignment="Center" Margin="0 30"></Button>

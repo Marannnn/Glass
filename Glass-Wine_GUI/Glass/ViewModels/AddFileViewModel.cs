@@ -15,49 +15,28 @@ namespace Glass.ViewModels;
 
 public partial class AddFileViewModel : ViewModelBase
 {
-    private List<WineProgram> programList = new List<WineProgram>();
     private Wine wine = new Wine();
-    public ObservableCollection<string> prefixesCollection { get; } = new ObservableCollection<string>();
+    
+    [ObservableProperty]
+    private string _filePrefix;
+    
+    public ObservableCollection<Prefix> prefixesCollection { get; } = new ObservableCollection<Prefix>();
 
     public AddFileViewModel()
     {
-        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            ".local/share/glass");
-        //TODO: LOAD saved prefixes 
-        //save them into prefixCollection
-        List<string> prefixes = File.ReadAllLines(Path.Combine(directory, "prefixes.txt")).ToList();
-        foreach (string prefix in prefixes)
-        {
-            prefixesCollection.Add(prefix);
-        }
+        prefixesCollection = wine.LoadPrefixes();
     }
 
-    public void Test()
+    public void AddNewFile(string name, string path)
     {
-        //TODO: Dynamically add prefixesCollection into combobox
-
-        Console.WriteLine("Started :##3333");
-        prefixesCollection.Add("Glass");
-    }
-
-    public void AddNewFile(string name, string path, string prefix)
-    {
-
         Console.WriteLine($"Dostal jsem {path}");
-        programList.Add(new WineProgram()
+        WineProgram wineProgram = new WineProgram()
         {
             name = name,
             path = path,
-            prefix = prefix
-        });
-        wine.StartFile(path, prefix);
+            prefix = FilePrefix
+        };
+        wine.StartFile(wineProgram);
     }
 
-}
-
-public class WineProgram
-{
-    public string name {get;set;}
-    public string path {get;set;}
-    public string prefix {get;set;}
 }

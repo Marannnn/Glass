@@ -5,44 +5,55 @@ using System.IO;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Glass.Views;
+using Glass.Models;
 namespace Glass.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public ObservableCollection<string> prefixCollection { get; } = new ObservableCollection<string>();
+    public ObservableCollection<Prefix> prefixCollection { get; } = new ObservableCollection<Prefix>();
 
     public MainWindowViewModel()
     {
-        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
-            ".local/share/glass");
+        Wine wine = new Wine();
+        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+        string filePath = Path.Combine(directory, "prefixes.json");
 
-        if (!File.Exists(Path.Combine(directory, "prefixes.txt")))
+        if (!File.Exists(filePath))  //jestli neexistuje soubor
         {
-            File.WriteAllText(Path.Combine(directory, "prefixes.txt"), string.Empty);
+            File.WriteAllText(filePath, string.Empty);
         }
-
-        // reads the prefix file
-        List<string> prefixes = File.ReadAllLines(Path.Combine(directory, "prefixes.txt")).ToList();
+        ObservableCollection<Prefix> prefixes = wine.LoadPrefixes();
         
 	    string userName = Environment.UserName;
         string defaultDirectory = $"/home/{userName}/.wine";
         if (Directory.Exists(defaultDirectory))		//pokud ta wine directory existuje
         {
-            if (!prefixes.Contains(defaultDirectory))	//pokud ji nemam zapsanou v prefixes.txt
+            bool exists = prefixes.Any(x => x.path == defaultDirectory); // true jestli je defaultDirectory v listu
+            if (!exists)	//pokud ji nemam zapsanou
             {
-                prefixes.Add(defaultDirectory);
-                File.WriteAllLines(Path.Combine(directory, "prefixes.txt"), prefixes);
+                Prefix prefix = new Prefix()
+                {
+                    path = defaultDirectory,
+                    Architecture = AddPrefixViewModel.Architecture.win64
+                };
+                //TODO: SERIALIZE
+                prefixes.Add(prefix);
+                string jsonString = JsonSerializer.Serialize(prefixes);
+                File.WriteAllText(filePath, jsonString);
             }
         }
 
-        foreach (string prefix in prefixes)
+        //TODO: path collecttion and arch
+        foreach (var prefix in prefixes)
         {
             prefixCollection.Add(prefix);
         }
-	prefixes = null;   //manualne to odstranim protoze uz to nebudu pouzivat, asi zbytecne ale idk proc ne 
     }
 
     [RelayCommand]
@@ -67,4 +78,27 @@ public partial class MainWindowViewModel : ViewModelBase
         AddPrefixWindow.Show();
         Console.WriteLine($"New Window: {AddPrefixWindow}");
     }
+
+    [RelayCommand]
+    public void RemovePrefix(Prefix prefix)
+    {
+        prefixCollection.Remove(prefix);
+        
+        //odstraneni slozky
+        string folderPath = prefix.path;
+        Directory.Delete(folderPath, true); //true - recursive = -r = odstrani vsechno rekuzrivne, subslozky a tak
+        
+        //jestli se uspesne odstranila
+        if (!Directory.Exists(folderPath))
+        {
+            //serializace do json
+            string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                ".local/share/glass");
+            string filePath = Path.Combine(directory, "prefixes.json");
+
+            string jsonString = JsonSerializer.Serialize(prefixCollection);
+            File.WriteAllText(filePath, jsonString);
+        }
+    }
 }
+

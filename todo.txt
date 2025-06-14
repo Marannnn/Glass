@@ -27,9 +27,8 @@ Color pallete
 what im working on
 --------------------
 
-Wine.cs Start a program		X
-
-AddPrefix new prefix with selected ARCH		X
+save prefixes into json file with arch and path
+	default wine prefix save json 64bit
 
 MainViewModel show prefixes architecture
 
@@ -53,3 +52,26 @@ AddFIle add new instance of class
 current problem
 ---------------
 
+MainViewModel doesnt add default into json		X
+
+save prefixes into json file with arch and path		X
+
+default wine prefix save json 64bit					X
+
+MainViewModel show prefix path and arch				X
+
+remove prefixes 
+	from listbonix									X
+	remove folder									X
+
+AddFile choose from combobox						X
+
+StartFile with prefix								WORINGON
+
+wine.cs global obsrvableCollection programs
+
+
+
+
+used wineProgram instance instead of strings in methods
+changed structure
