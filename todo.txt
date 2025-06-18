@@ -57,17 +57,18 @@ wine.cs fileStart doesnt start ,path 		X
 
 start file standalone						X
 
-! addFile a addPrefix sync mezi  MainWindowViewmodel		-save, load,..
+! addFile a addPrefix sync mezi  MainWindowViewmodel		-save, load,.. 	X
 
 WineProgram 
 	mainviewmodel create file if doesnt exist	X
 	
 	wine.cs method -> load and deserialize winePrograms, returns collection		X
 
-	mainviewmodel displays collection content and on click starts specific program		working
+	mainviewmodel displays collection content and on click starts specific program	X	
 
-	save program files into json (WineProgram class)
+	save program files into json (WineProgram class)		X`
 		detect if game was succesfuly added
+
 
 open dialog if program added
 
@@ -75,7 +76,7 @@ open dialog if program added
 Check if prefix paths actually exist
 
 
+---
+Create Glass on startup
 
-AddFile.axaml.cs AddFile removed and just used the viewmodel one
-
-WineProgram class now uses Prefix class isntead of string
+Overall changed structury with Class Collections, all VIewModels now share the same collections.

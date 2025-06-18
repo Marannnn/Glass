@@ -28,9 +28,10 @@ public partial class AddFileViewModel : ViewModelBase
     public ObservableCollection<WineProgram> programCollection { get; set; } = new ObservableCollection<WineProgram>();
     
     
-    public AddFileViewModel()
+    public AddFileViewModel(Collections collections)
     {
-        prefixesCollection = wine.LoadPrefixes();
+        prefixesCollection = collections.prefixCollection;
+        programCollection = collections.programCollection;
     }
     
     public void AssignValue(string filePath, string fileName)
@@ -51,14 +52,13 @@ public partial class AddFileViewModel : ViewModelBase
         Console.WriteLine(FilePrefix);
         wine.StartFile(program);
         
-        
-        //TODO: kolekce v MainWindowViewModel
         //precist soubor
-        programCollection = wine.LoadProgram();
+        programCollection.Add(program);
+        
+        
         //zapsat 
         string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
         string programFilePath = Path.Combine(directory, "programs.json");        
-        programCollection.Add(program);
         string jsonString = JsonSerializer.Serialize(programCollection);
         File.WriteAllText(programFilePath, jsonString);
     }

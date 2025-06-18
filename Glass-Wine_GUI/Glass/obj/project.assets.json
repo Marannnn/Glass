@@ -1471,11 +1471,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
+      "projectUniqueName": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
       "projectName": "Glass",
-      "projectPath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
+      "projectPath": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/Glass.csproj",
       "packagesPath": "/home/maran/.nuget/packages/",
-      "outputPath": "/home/maran/Dokumenty/skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/obj/",
+      "outputPath": "/home/maran/Documents/Skola/PRG/final_project_T2/Glass/Glass-Wine_GUI/Glass/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/maran/.nuget/NuGet/NuGet.Config"
@@ -1502,7 +1502,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -1544,18 +1544,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[9.0.4, 9.0.4]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/maran/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

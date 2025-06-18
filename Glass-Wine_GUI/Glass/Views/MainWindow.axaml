@@ -27,8 +27,8 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Grid ColumnDefinitions="*, Auto">
-                                    <Label Content="{Binding name}"></Label>
-                                    <Button Content="Start"
+                                    <Label Grid.Column="0" Content="{Binding name}"></Label>
+                                    <Button Grid.Column="1" Content="Start"
                                         Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).StartFileCommand}" 
                                         CommandParameter="{Binding .}">
                                         

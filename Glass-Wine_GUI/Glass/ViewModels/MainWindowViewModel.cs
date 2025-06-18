@@ -20,15 +20,26 @@ namespace Glass.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     Wine wine = new Wine();
+    Collections collections = new Collections();
     public ObservableCollection<WineProgram> programCollection { get; set; }
     public ObservableCollection<Prefix> prefixCollection { get; set; }
 
     public MainWindowViewModel()
     {
+        string defaultDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/");
+        string directory = Path.Combine(defaultDir, "glass");
 
-        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+        
         string prefixFilePath = Path.Combine(directory, "prefixes.json");
 		string programFilePath = Path.Combine(directory, "programs.json");
+        
+        //creating Glass folder
+        
+        
         
         //APPLICATIONS
 		#region Creating file if doesnt exist
@@ -37,9 +48,10 @@ public partial class MainWindowViewModel : ViewModelBase
 			File.WriteAllText(programFilePath, string.Empty);
 		}
 		#endregion
-
-		programCollection = wine.LoadProgram();
-		
+        
+        collections.LoadProgram();
+        programCollection = collections.programCollection;
+        		
         //PREFIXES
 		#region Creating file if doesnt exist
         if (!File.Exists(prefixFilePath))  //jestli neexistuje soubor
@@ -47,8 +59,8 @@ public partial class MainWindowViewModel : ViewModelBase
             File.WriteAllText(prefixFilePath, string.Empty);
         }
 		#endregion
-        prefixCollection = wine.LoadPrefixes();
-        
+        collections.LoadPrefixes();      
+        prefixCollection = collections.prefixCollection;
 	    string userName = Environment.UserName;
         string defaultDirectory = $"/home/{userName}/.wine";
         if (Directory.Exists(defaultDirectory))		//pokud ta wine directory existuje
@@ -76,25 +88,26 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         var AddFileWindow = new AddFile
         {
-            DataContext = new AddFileViewModel() //urci data context pro instanci okna// tady to jsem si vypujcil z app.axaml. PROC TO NEBYLO V DOKUMENTACI NEBO ASI MOZNA JO JA NEVIM
+            DataContext = new AddFileViewModel(collections) //urci data context pro instanci okna// tady to jsem si vypujcil z app.axaml. PROC TO NEBYLO V DOKUMENTACI NEBO ASI MOZNA JO JA NEVIM
         };
         AddFileWindow.Show();
         Console.WriteLine($"New Window: {AddFileWindow}");
         
     }
 
-[RelayCommand]
-public async void StartFile(WineProgram program)
-{
-    wine.StartFile(program);
-}
-	//PREFIX
+    [RelayCommand]
+    public void StartFile(WineProgram program)
+    {
+        wine.StartFile(program);
+    }
+	
+    //PREFIX
     [RelayCommand]
     public void OpenPrefixWindow()
     {
         var AddPrefixWindow = new AddPrefix
         {
-            DataContext = new AddPrefixViewModel()
+            DataContext = new AddPrefixViewModel(collections)
         };
         AddPrefixWindow.Show();
         Console.WriteLine($"New Window: {AddPrefixWindow}");
