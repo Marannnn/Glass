@@ -1,0 +1,47 @@
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Avalonia.Markup.Xaml;
+using Avalonia.Platform.Storage;
+
+namespace Glass.Views;
+
+public partial class Installer : Window
+{
+    private string filePath;
+    private string fileName;
+    
+    public Installer()
+    {
+        InitializeComponent();
+    }
+    
+    private async void BrowseButton(object? sender, RoutedEventArgs e)
+    {
+        //tady to definuje novy file type protoze z nejakeho duvodu nemaji defaultne exe soubory  mozna to pozdeji presunu do jineho souboru
+        var exeFiles = new FilePickerFileType(".exe")
+        {
+            Patterns = new []{"*.exe"},
+            MimeTypes = new []{"application/vnd.microsoft.portable-executable"}
+        };
+        
+        var topLevel = TopLevel.GetTopLevel(this);
+        //vrati list IStorageFile instancí  
+        var files = await topLevel.StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
+        {
+            Title = "Please select an .exe file",
+            AllowMultiple = false,
+            FileTypeFilter = new[] {exeFiles}
+        });
+        if (files.Count == 1)   //jestli uzivatel vybral 1 soubor
+        {
+            fileName = files[0].Name;
+            filePath = files[0].Path.LocalPath;
+        }
+
+        if (DataContext is Glass.ViewModels.AddFileViewModel vm)
+        {
+            vm.AssignValue(filePath, fileName);
+        }
+    }   
+}

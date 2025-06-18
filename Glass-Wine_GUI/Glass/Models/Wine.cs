@@ -59,7 +59,7 @@ public class Wine
     public void StartFile(WineProgram wineProgram)
     {
 	    string currentUser = Environment.UserName;  //gets the current user
-	    string command = $"nohup env WINEPREFIX='{wineProgram.prefix.path}' wine '{wineProgram.path}' >/dev/null 2>&1";
+	    string command = $"nohup env WINEPREFIX='{wineProgram.prefix.path}' wine \"{wineProgram.path}\" >/dev/null 2>&1";
 
         Process process = new Process()
         {
@@ -90,5 +90,5 @@ public class WineProgram
 {
 	public string name {get;set;}
 	public string path {get;set;}
-	public Prefix prefix;
+	public Prefix prefix {get;set;}
 }

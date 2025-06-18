@@ -28,7 +28,8 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         string defaultDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/");
         string directory = Path.Combine(defaultDir, "glass");
-
+        
+        //creating Glass folder
         if (!Directory.Exists(directory))
         {
             Directory.CreateDirectory(directory);
@@ -36,9 +37,6 @@ public partial class MainWindowViewModel : ViewModelBase
         
         string prefixFilePath = Path.Combine(directory, "prefixes.json");
 		string programFilePath = Path.Combine(directory, "programs.json");
-        
-        //creating Glass folder
-        
         
         
         //APPLICATIONS
@@ -100,7 +98,26 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         wine.StartFile(program);
     }
-	
+
+    [RelayCommand]
+    public void RefreshPrograms()
+    {
+        string defaultDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/");
+        string directory = Path.Combine(defaultDir, "glass");
+        string programFilePath = Path.Combine(directory, "programs.json");
+
+        
+        var toRemove = programCollection.Where(x => !Path.Exists(x.path)).ToList();
+
+        foreach (var item in toRemove)
+        {
+            programCollection.Remove(item);
+        }
+        
+        string jsonString = JsonSerializer.Serialize(programCollection);
+        File.WriteAllText(programFilePath, jsonString);
+    }
+    
     //PREFIX
     [RelayCommand]
     public void OpenPrefixWindow()
@@ -133,6 +150,24 @@ public partial class MainWindowViewModel : ViewModelBase
             string jsonString = JsonSerializer.Serialize(prefixCollection);
             File.WriteAllText(filePath, jsonString);
         }
+    }
+    [RelayCommand]
+    public void RefreshPrefixes()
+    {
+        string defaultDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/");
+        string directory = Path.Combine(defaultDir, "glass");
+        string prefixesFilePath = Path.Combine(directory, "prefixes.json");
+
+        
+        var toRemove = prefixCollection.Where(x => !Path.Exists(x.path)).ToList();
+
+        foreach (var item in toRemove)
+        {
+            prefixCollection.Remove(item);
+        }
+        
+        string jsonString = JsonSerializer.Serialize(prefixCollection);
+        File.WriteAllText(prefixesFilePath, jsonString);
     }
 }
 

@@ -24,6 +24,8 @@ public partial class AddFileViewModel : ViewModelBase
     private string _filePath;
     private string _fileName;
     
+    public bool isChecked { get; set; }
+    
     public ObservableCollection<Prefix> prefixesCollection { get; } = new ObservableCollection<Prefix>();
     public ObservableCollection<WineProgram> programCollection { get; set; } = new ObservableCollection<WineProgram>();
     
@@ -43,24 +45,31 @@ public partial class AddFileViewModel : ViewModelBase
     [RelayCommand]
     public void AddNewFile(Prefix prefix)
     {
-        WineProgram program = new WineProgram()
+        if (isChecked == false)
         {
-            name = _fileName,
-            path = _filePath,
-            prefix = prefix,
-        };
-        Console.WriteLine(FilePrefix);
-        wine.StartFile(program);
+            WineProgram program = new WineProgram()
+            {
+                name = _fileName,
+                path = _filePath,
+                prefix = prefix,
+            };
+            wine.StartFile(program);
         
-        //precist soubor
-        programCollection.Add(program);
+            //precist soubor
+            programCollection.Add(program);
         
         
-        //zapsat 
-        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
-        string programFilePath = Path.Combine(directory, "programs.json");        
-        string jsonString = JsonSerializer.Serialize(programCollection);
-        File.WriteAllText(programFilePath, jsonString);
+            //zapsat 
+            string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+            string programFilePath = Path.Combine(directory, "programs.json");        
+            string jsonString = JsonSerializer.Serialize(programCollection);
+            File.WriteAllText(programFilePath, jsonString);
+            return;
+        }
+        else
+        {
+            
+        }
     }
 
 }

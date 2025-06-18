@@ -21,17 +21,20 @@
     <TabControl Name="Root">
         <TabItem Header="Applications" FontSize="15" >
             <Grid RowDefinitions="Auto, *">
-                <Button Margin="0 10" Command="{Binding OpenFileWindowCommand}">+</Button>
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+                    <Button Grid.Column="0" Margin="0 10" Command="{Binding OpenFileWindowCommand}">+</Button>
+                    <Button Grid.Column="1" Content="Refresh" Command="{Binding RefreshProgramsCommand}"></Button>
+                </Grid>
                 <ScrollViewer Grid.Row="1" Margin="0 0 0 15">
                     <ListBox ItemsSource="{Binding programCollection}" Background="#293244">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Grid ColumnDefinitions="*, Auto">
+                                <Grid ColumnDefinitions="*, * ,Auto">
                                     <Label Grid.Column="0" Content="{Binding name}"></Label>
-                                    <Button Grid.Column="1" Content="Start"
+                                    <Label Grid.Column="1" Content="{Binding prefix.path}"></Label>
+                                    <Button Grid.Column="2" Content="Start"
                                         Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).StartFileCommand}" 
                                         CommandParameter="{Binding .}">
-                                        
                                     </Button> 
                                 </Grid>
                             </DataTemplate>
@@ -42,7 +45,10 @@
         </TabItem>
         <TabItem Header="Prefixes" FontSize="15" >
             <Grid RowDefinitions="Auto, *">
-                <Button Content="+" Command="{Binding OpenPrefixWindow}" Margin="0 10"></Button>
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto">
+                    <Button Grid.Column="0" Content="+" Command="{Binding OpenPrefixWindow}" Margin="0 10"></Button>
+                    <Button Grid.Column="1" Content="Refresh" Command="{Binding RefreshPrefixesCommand}"></Button>
+                </Grid>
                 <ScrollViewer Grid.Row="1" Margin="0 0 0 15">
                     <ListBox ItemsSource="{Binding prefixCollection}" Background="#293244">
                         <ListBox.ItemTemplate>

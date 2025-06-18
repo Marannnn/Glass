@@ -51,32 +51,20 @@ AddFIle add new instance of class
 #######
 current problem	/	current commit
 ---------------
-StartFile with prefix						X								
 
-wine.cs fileStart doesnt start ,path 		X
+refresh programs and prefix files		X	
+	-> check if all still exist			
 
-start file standalone						X
+refresh deletes all?		X
 
-! addFile a addPrefix sync mezi  MainWindowViewmodel		-save, load,.. 	X
+MainViewModle applications show programs prefix 	X	
 
-WineProgram 
-	mainviewmodel create file if doesnt exist	X
-	
-	wine.cs method -> load and deserialize winePrograms, returns collection		X
+installer mode					WORKING
+	+checkbox in AddFile
+		+doesnt save the filepath, 
+			-> ask for the final exe path
+				-> saves that
 
-	mainviewmodel displays collection content and on click starts specific program	X	
-
-	save program files into json (WineProgram class)		X`
-		detect if game was succesfuly added
-
-
-open dialog if program added
-
-
-Check if prefix paths actually exist
-
+DOKUMENTACE		WORKING	ON
 
 ---
-Create Glass on startup
-
-Overall changed structury with Class Collections, all VIewModels now share the same collections.
