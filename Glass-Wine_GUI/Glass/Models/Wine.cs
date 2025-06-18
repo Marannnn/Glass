@@ -20,7 +20,6 @@ public class Wine
         string currentUser = Environment.UserName;  //gets the current user
         string prefixPath = $"/home/{currentUser}/.{name}";
         
-        //TODO: create new prefix with /home/$USER/.{name} {architecture}
          Process process = new Process()
          {
              StartInfo = new ProcessStartInfo()
@@ -54,7 +53,45 @@ public class Wine
 		Thread.Sleep(1000);
 	 }
     }
+    
+    public void StartFile(WineProgram wineProgram)
+    {
+	    string currentUser = Environment.UserName;  //gets the current user
+	    string command = $"nohup env WINEPREFIX='{wineProgram.prefix.path}' wine '{wineProgram.path}' >/dev/null 2>&1";
 
+        Process process = new Process()
+        {
+            StartInfo = new ProcessStartInfo()
+            {
+				FileName = "/bin/bash",
+				Arguments = $"-c \"{command}\"",
+				UseShellExecute = false,    
+				RedirectStandardOutput = false,
+ 				RedirectStandardError = false,
+            }
+        };
+        process.Start();
+        Console.WriteLine($"Created new process {process.StartInfo.FileName} + {process.StartInfo.Arguments}");
+    }
+
+
+	//LOAD
+	
+    public ObservableCollection<WineProgram> LoadProgram()
+    {
+	    string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+	    string filePath = Path.Combine(directory, "programs.json");
+	    
+	    //deserializace
+	    string jsonString = File.ReadAllText(filePath);
+		if (!String.IsNullOrEmpty(jsonString))
+		{
+			ObservableCollection<WineProgram> programs = JsonSerializer.Deserialize<ObservableCollection<WineProgram>>(jsonString);
+			return programs;
+		}
+		return new ObservableCollection<WineProgram>();
+    }
+    
     public ObservableCollection<Prefix> LoadPrefixes()
     {
 	    string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
@@ -69,23 +106,7 @@ public class Wine
 	    }
 	    return new ObservableCollection<Prefix>();
     }
-    
-    public void StartFile(WineProgram wineProgram)
-    {
-	    string currentUser = Environment.UserName;  //gets the current user
-	    
-        //TODO: start with prefixes
-        Process process = new Process()
-        {
-            StartInfo = new ProcessStartInfo()
-            {
-				FileName = "/bin/bash",
-				Arguments = $"-c \"WINEPREFIX={wineProgram.prefix} wine '{wineProgram.path}' \"",
-            }
-        };
-        Console.WriteLine($"Created new process {process.StartInfo.FileName} + {process.StartInfo.Arguments}");
-        process.Start();
-    }
+
 }
 
 public class Prefix
@@ -98,5 +119,5 @@ public class WineProgram
 {
 	public string name {get;set;}
 	public string path {get;set;}
-	public string prefix {get;set;}
+	public Prefix prefix;
 }

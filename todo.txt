@@ -45,33 +45,37 @@ AddFIle add new instance of class
 
 	ON-CLICK: 
 		start the file fie with the specified prefix
-			+(method StartFile wine.cs)
+			+(method StartFile wine.cs)194
 
 
 #######
-current problem
+current problem	/	current commit
 ---------------
+StartFile with prefix						X								
 
-MainViewModel doesnt add default into json		X
+wine.cs fileStart doesnt start ,path 		X
 
-save prefixes into json file with arch and path		X
+start file standalone						X
 
-default wine prefix save json 64bit					X
+! addFile a addPrefix sync mezi  MainWindowViewmodel		-save, load,..
 
-MainViewModel show prefix path and arch				X
+WineProgram 
+	mainviewmodel create file if doesnt exist	X
+	
+	wine.cs method -> load and deserialize winePrograms, returns collection		X
 
-remove prefixes 
-	from listbonix									X
-	remove folder									X
+	mainviewmodel displays collection content and on click starts specific program		working
 
-AddFile choose from combobox						X
+	save program files into json (WineProgram class)
+		detect if game was succesfuly added
 
-StartFile with prefix								WORINGON
-
-wine.cs global obsrvableCollection programs
-
-
+open dialog if program added
 
 
-used wineProgram instance instead of strings in methods
-changed structure
+Check if prefix paths actually exist
+
+
+
+AddFile.axaml.cs AddFile removed and just used the viewmodel one
+
+WineProgram class now uses Prefix class isntead of string

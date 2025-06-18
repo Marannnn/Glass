@@ -40,18 +40,10 @@ public partial class AddFile : Window
             fileName = files[0].Name;
             filePath = files[0].Path.LocalPath;
         }
-    }   
-    private void AddButton(object? sender, RoutedEventArgs e)
-    {
-        if (String.IsNullOrEmpty(filePath) == false)    //pokud neni prazdne
-        {
-            if (DataContext is AddFileViewModel vm)     //jestli DataContext je "AddFileViewModel", tak ulozim ten ViewModel do promene "vm"
-            {
-                vm.AddNewFile(fileName, filePath);
-            }    
-        }
-        
-        Close(); //okno se vypne
-    }
 
+        if (DataContext is Glass.ViewModels.AddFileViewModel vm)
+        {
+            vm.AssignValue(filePath, fileName);
+        }
+    }   
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Text.Json;
 using System.Linq;
 using System.Net;
 using Avalonia.Controls;
@@ -19,24 +20,47 @@ public partial class AddFileViewModel : ViewModelBase
     
     [ObservableProperty]
     private string _filePrefix;
+
+    private string _filePath;
+    private string _fileName;
     
     public ObservableCollection<Prefix> prefixesCollection { get; } = new ObservableCollection<Prefix>();
-
+    public ObservableCollection<WineProgram> programCollection { get; set; } = new ObservableCollection<WineProgram>();
+    
+    
     public AddFileViewModel()
     {
         prefixesCollection = wine.LoadPrefixes();
     }
-
-    public void AddNewFile(string name, string path)
+    
+    public void AssignValue(string filePath, string fileName)
     {
-        Console.WriteLine($"Dostal jsem {path}");
-        WineProgram wineProgram = new WineProgram()
+        _filePath = filePath;
+        _fileName = fileName;
+    }
+
+    [RelayCommand]
+    public void AddNewFile(Prefix prefix)
+    {
+        WineProgram program = new WineProgram()
         {
-            name = name,
-            path = path,
-            prefix = FilePrefix
+            name = _fileName,
+            path = _filePath,
+            prefix = prefix,
         };
-        wine.StartFile(wineProgram);
+        Console.WriteLine(FilePrefix);
+        wine.StartFile(program);
+        
+        
+        //TODO: kolekce v MainWindowViewModel
+        //precist soubor
+        programCollection = wine.LoadProgram();
+        //zapsat 
+        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+        string programFilePath = Path.Combine(directory, "programs.json");        
+        programCollection.Add(program);
+        string jsonString = JsonSerializer.Serialize(programCollection);
+        File.WriteAllText(programFilePath, jsonString);
     }
 
 }

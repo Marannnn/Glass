@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -16,25 +19,41 @@ namespace Glass.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public ObservableCollection<Prefix> prefixCollection { get; } = new ObservableCollection<Prefix>();
+    Wine wine = new Wine();
+    public ObservableCollection<WineProgram> programCollection { get; set; }
+    public ObservableCollection<Prefix> prefixCollection { get; set; }
 
     public MainWindowViewModel()
     {
-        Wine wine = new Wine();
-        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
-        string filePath = Path.Combine(directory, "prefixes.json");
 
-        if (!File.Exists(filePath))  //jestli neexistuje soubor
+        string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
+        string prefixFilePath = Path.Combine(directory, "prefixes.json");
+		string programFilePath = Path.Combine(directory, "programs.json");
+        
+        //APPLICATIONS
+		#region Creating file if doesnt exist
+       	 if (!File.Exists(programFilePath)) //jestli soubor neexistuje
+		{
+			File.WriteAllText(programFilePath, string.Empty);
+		}
+		#endregion
+
+		programCollection = wine.LoadProgram();
+		
+        //PREFIXES
+		#region Creating file if doesnt exist
+        if (!File.Exists(prefixFilePath))  //jestli neexistuje soubor
         {
-            File.WriteAllText(filePath, string.Empty);
+            File.WriteAllText(prefixFilePath, string.Empty);
         }
-        ObservableCollection<Prefix> prefixes = wine.LoadPrefixes();
+		#endregion
+        prefixCollection = wine.LoadPrefixes();
         
 	    string userName = Environment.UserName;
         string defaultDirectory = $"/home/{userName}/.wine";
         if (Directory.Exists(defaultDirectory))		//pokud ta wine directory existuje
         {
-            bool exists = prefixes.Any(x => x.path == defaultDirectory); // true jestli je defaultDirectory v listu
+            bool exists = prefixCollection.Any(x => x.path == defaultDirectory); // true jestli je defaultDirectory v listu
             if (!exists)	//pokud ji nemam zapsanou
             {
                 Prefix prefix = new Prefix()
@@ -42,20 +61,16 @@ public partial class MainWindowViewModel : ViewModelBase
                     path = defaultDirectory,
                     Architecture = AddPrefixViewModel.Architecture.win64
                 };
-                //TODO: SERIALIZE
-                prefixes.Add(prefix);
-                string jsonString = JsonSerializer.Serialize(prefixes);
-                File.WriteAllText(filePath, jsonString);
+                prefixCollection.Add(prefix);
+                string jsonString = JsonSerializer.Serialize(prefixCollection);
+                File.WriteAllText(prefixFilePath, jsonString);
             }
         }
 
-        //TODO: path collecttion and arch
-        foreach (var prefix in prefixes)
-        {
-            prefixCollection.Add(prefix);
-        }
     }
 
+
+	//APPLICATIONS
     [RelayCommand]
     public void OpenFileWindow()
     {
@@ -68,6 +83,12 @@ public partial class MainWindowViewModel : ViewModelBase
         
     }
 
+[RelayCommand]
+public async void StartFile(WineProgram program)
+{
+    wine.StartFile(program);
+}
+	//PREFIX
     [RelayCommand]
     public void OpenPrefixWindow()
     {
