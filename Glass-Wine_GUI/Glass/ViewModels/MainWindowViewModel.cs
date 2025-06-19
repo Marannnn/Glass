@@ -69,7 +69,6 @@ public partial class MainWindowViewModel : ViewModelBase
                 Prefix prefix = new Prefix()
                 {
                     path = defaultDirectory,
-                    Architecture = AddPrefixViewModel.Architecture.win64
                 };
                 prefixCollection.Add(prefix);
                 string jsonString = JsonSerializer.Serialize(prefixCollection);

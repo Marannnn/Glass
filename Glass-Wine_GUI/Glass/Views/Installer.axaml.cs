@@ -39,9 +39,9 @@ public partial class Installer : Window
             filePath = files[0].Path.LocalPath;
         }
 
-        if (DataContext is Glass.ViewModels.AddFileViewModel vm)
+        if (DataContext is Glass.ViewModels.InstallerViewModel vm)
         {
-            vm.AssignValue(filePath, fileName);
+            vm.AssingValue(filePath, fileName);
         }
     }   
 }

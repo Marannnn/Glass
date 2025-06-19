@@ -1,0 +1,50 @@
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Games/BIGFOOT": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Games/BIGFOOT": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Games/BIGFOOT": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135
+00c0:err:hid:udev_bus_init UDEV monitor creation failed
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+0024:fixme:powermgnt:PowerCreateRequest (00007FFFFE8FD0F0): stub
+0024:fixme:powermgnt:PowerSetRequest (00000000000000B4, 1): stub
+0024:fixme:powermgnt:PowerSetRequest (00000000000000B4, 0): stub
+0024:fixme:wbemprox:enum_class_object_Next timeout not supported
+0024:fixme:ntdll:NtQuerySystemInformation info_class SYSTEM_PERFORMANCE_INFORMATION
+0024:fixme:shcore:SetCurrentProcessExplicitAppUserModelID L"Godot.GodotEditor.4.4.1.stable": stub
+0024:fixme:dwmapi:DwmSetWindowAttribute (0000000000030072, 21, 00007FFFFE8FC930, 4) stub
+0024:fixme:win:RegisterTouchWindow hwnd 0000000000030072, flags 0 stub!
+0024:fixme:shell:SHGetPropertyStoreForWindow (0000000000030072 00000001489FD610 00007FFFFE8FD058) stub!
+0024:fixme:shell:window_prop_store_SetValue 00007FE9BF366230, {{9f4c2855-9f79-4b39-a8d0-e1d42de1d5f3},5}, 00007FFFFE8FD0C0
+OpenGL API 3.3.0 NVIDIA 575.57.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 4060
+
+0168:fixme:ver:GetCurrentApplicationUserModelId (00007FFFFE8EF560 00007FFFFE8EF570): stub
+0024:fixme:powermgnt:PowerClearRequest (00000000000000B4, 1): stub
+0024:fixme:powermgnt:PowerClearRequest (00000000000000B4, 0): stub
+wine: failed to open "/home/maran/.wine/drive_c/Program": c0000135

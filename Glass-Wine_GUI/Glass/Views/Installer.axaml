@@ -6,15 +6,23 @@
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="200"
         x:Class="Glass.Views.Installer"
         Title="Installer"
-        x:DataType="vm:AddFileViewModel"
+        x:DataType="vm:InstallerViewModel"
         Height="200"
         Width="450"
         Background="#1B2430">
-        <Grid RowDefinitions="*, * ,Auto">
+        <Grid RowDefinitions="*, Auto , *">
                 <Grid Grid.Row="0" Grid.ColumnDefinitions="*, Auto" Margin="10 10" >
-                        <Label Grid.Column="0">Select a valid .exe file</Label>
+                        <Label Grid.Column="0">Select newly installed exe file</Label>
                         <Button Grid.Column="1" Content="Locate file" Click="BrowseButton" VerticalAlignment="Top"></Button>
                 </Grid>
-                <Button Grid.Row="2" Command="{Binding AddNewFileCommand}" CommandParameter="{Binding }" Content="Continue" HorizontalAlignment="Center" Margin="0 30"></Button>
+                <Button Grid.Row="1" Command="{Binding AddNewFileCommand}" CommandParameter="{Binding }" Content="Continue" HorizontalAlignment="Center" Margin="0 30"></Button>
+                <TextBlock Grid.Row="2" 
+                           xml:space="preserve"
+                           FontSize="11"
+                           FontWeight="ExtraLight"
+                           Width="300"
+                           TextWrapping="Wrap"
+                           Text="Install the desired program through installer. After the installation is completed, please select the newly installed exe file.">
+                </TextBlock>
         </Grid>
 </Window>

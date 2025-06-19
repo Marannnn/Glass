@@ -13,7 +13,7 @@ namespace Glass.Models;
 
 public class Wine
 {       
-    public void NewPrefix(string name, AddPrefixViewModel.Architecture architecture, Collections collections)
+    public void NewPrefix(string name, Collections collections)
     {
 	    string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
 	    string filePath = Path.Combine(directory, "prefixes.json");
@@ -25,7 +25,7 @@ public class Wine
              StartInfo = new ProcessStartInfo()
              {
                  FileName = "/bin/bash",
-                 Arguments = $"-c \"WINEARCH={architecture} WINEPREFIX={prefixPath} wineboot -u\"" ,
+                 Arguments = $"-c \"WINEPREFIX={prefixPath} wineboot -u\"" ,
                  CreateNoWindow = true,
              }
          };
@@ -43,7 +43,6 @@ public class Wine
 			 Prefix prefix = new Prefix()
 			 {
 				 path = prefixPath,
-				 Architecture = architecture
 			 }; 
 			 prefixes.Add(prefix);
 			 string jsonString = JsonSerializer.Serialize(prefixes);
@@ -58,8 +57,9 @@ public class Wine
     
     public void StartFile(WineProgram wineProgram)
     {
+	    Console.WriteLine(wineProgram.prefix.path);
 	    string currentUser = Environment.UserName;  //gets the current user
-	    string command = $"nohup env WINEPREFIX='{wineProgram.prefix.path}' wine \"{wineProgram.path}\" >/dev/null 2>&1";
+	    string command = $"nohup env WINEPREFIX='{wineProgram.prefix.path}' wine '{wineProgram.path}' >/dev/null 2>&1";
 
         Process process = new Process()
         {
@@ -76,14 +76,11 @@ public class Wine
         Console.WriteLine($"Created new process {process.StartInfo.FileName} + {process.StartInfo.Arguments}");
     }
 
-
-
 }
 
 public class Prefix
 {
 	public string path { get; set; }
-	public AddPrefixViewModel.Architecture Architecture {get;set;}
 }
 
 public class WineProgram

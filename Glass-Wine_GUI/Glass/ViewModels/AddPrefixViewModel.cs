@@ -17,8 +17,6 @@ public partial class AddPrefixViewModel : ViewModelBase
 
     [ObservableProperty]
     private string _prefixName;
-    [ObservableProperty]
-    private Architecture _selectedArch;
     public ObservableCollection<Prefix> prefixCollection { get; set; }
 
     public AddPrefixViewModel(Collections collections)
@@ -26,23 +24,12 @@ public partial class AddPrefixViewModel : ViewModelBase
         this.collections = collections;
     }
     
-    public enum Architecture
-    {
-            win64,
-            win32
-    }
-    public ObservableCollection<Architecture> architecturesCollection { get; set; } = new ObservableCollection<Architecture>
-    {
-        Architecture.win64,
-        Architecture.win32
-    };
-    
     [RelayCommand]
     public void NewPrefix()
     {
         if (PrefixName is not null)
         {
-            wine.NewPrefix(PrefixName, SelectedArch, collections);
+            wine.NewPrefix(PrefixName, collections);
         }
     }
 }

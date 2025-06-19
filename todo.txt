@@ -59,11 +59,13 @@ refresh deletes all?		X
 
 MainViewModle applications show programs prefix 	X	
 
-installer mode					WORKING
+installer mode						X
 	+checkbox in AddFile
 		+doesnt save the filepath, 
 			-> ask for the final exe path
 				-> saves that
+
+Correct binding in prefixCollection in AddFile 		X
 
 DOKUMENTACE		WORKING	ON
 

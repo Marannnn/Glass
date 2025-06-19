@@ -18,6 +18,8 @@ public partial class AddFileViewModel : ViewModelBase
 {
     private Wine wine = new Wine();
     
+    Collections collections;
+    
     [ObservableProperty]
     private string _filePrefix;
 
@@ -32,6 +34,7 @@ public partial class AddFileViewModel : ViewModelBase
     
     public AddFileViewModel(Collections collections)
     {
+        this.collections = collections;
         prefixesCollection = collections.prefixCollection;
         programCollection = collections.programCollection;
     }
@@ -41,11 +44,11 @@ public partial class AddFileViewModel : ViewModelBase
         _filePath = filePath;
         _fileName = fileName;
     }
-
+    
     [RelayCommand]
     public void AddNewFile(Prefix prefix)
     {
-        if (isChecked == false)
+        if (!string.IsNullOrEmpty(_fileName) && !string.IsNullOrEmpty(_filePath))
         {
             WineProgram program = new WineProgram()
             {
@@ -53,22 +56,26 @@ public partial class AddFileViewModel : ViewModelBase
                 path = _filePath,
                 prefix = prefix,
             };
-            wine.StartFile(program);
-        
-            //precist soubor
-            programCollection.Add(program);
-        
-        
-            //zapsat 
-            string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".local/share/glass");
-            string programFilePath = Path.Combine(directory, "programs.json");        
-            string jsonString = JsonSerializer.Serialize(programCollection);
-            File.WriteAllText(programFilePath, jsonString);
-            return;
-        }
-        else
-        {
-            
+            if (isChecked == false)
+            {
+                //precist soubor
+                programCollection.Add(program);
+                //zapsat 
+                string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+                    ".local/share/glass");
+                string programFilePath = Path.Combine(directory, "programs.json");
+                string jsonString = JsonSerializer.Serialize(programCollection);
+                File.WriteAllText(programFilePath, jsonString);
+            }
+            else
+            {
+                wine.StartFile(program);
+                var installer = new Installer
+                {
+                    DataContext = new InstallerViewModel(collections, prefix)
+                };
+                installer.Show();
+            }
         }
     }
 
